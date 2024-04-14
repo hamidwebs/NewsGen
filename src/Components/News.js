@@ -46,7 +46,7 @@ export class News extends Component {
                 <h2 className='my-3'>NewsGen - Top Headlines</h2>
                 <div className="row">
                     {this.state.articles.map((e) => {
-                        return e.title !== '[Removed]' ? (<div className="col-md-4 my-3" key={e.url}>
+                        return e.title !== '[Removed]' || e.title === '' ? (<div className="col-lg-4 col-md-6 my-3" key={e.url}>
                             <NewsItem title={e.title ? e.title.slice(0, 20) + '...' : ''} description={e.description ? e.description.slice(0, 50) + '...' : ''} srcOfNewsImg={e.urlToImage} newsUrl={e.url} />
                         </div>) : ''
                     })}
