@@ -71,7 +71,7 @@ export class News extends Component {
                 <div className="row">
                     {!(this.state.loading) && this.state.articles.map((e) => {
                         return e.title !== '[Removed]' || e.title === '' ? (<div className="col-lg-4 col-md-6 my-3" key={e.url}>
-                            <NewsItem title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 50) + '...' : ''} srcOfNewsImg={e.urlToImage} newsUrl={e.url} />
+                            <NewsItem title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 100) + '...' : 'Click to See Details.'} srcOfNewsImg={e.urlToImage} newsUrl={e.url} publishedDate={e.publishedAt} author={e.author ? e.author : 'Unknown'} source={e.source.name} />
                         </div>) : ''
                     })}
                 </div>
