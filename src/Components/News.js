@@ -66,12 +66,12 @@ export class News extends Component {
     render() {
         return (
             <div className='container'>
-                <h1 className='my-3 text-center' style={{margin: "40px 0px"}}>NewsGen - Top Headlines</h1>
+                <h1 className={`my-3 text-center text-${this.props.mode === 'dark' ? 'light' : 'dark'}`} style={{margin: "40px 0px"}}>NewsGen - Top Headlines</h1>
                 {this.state.loading && <Spinner />}
                 <div className="row">
                     {!(this.state.loading) && this.state.articles.map((e) => {
                         return e.title !== '[Removed]' || e.title === '' ? (<div className="col-lg-4 col-md-6 my-3" key={e.url}>
-                            <NewsItem title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 100) + '...' : 'Click to See Details.'} srcOfNewsImg={e.urlToImage} newsUrl={e.url} publishedDate={e.publishedAt} author={e.author ? e.author : 'Unknown'} source={e.source.name} />
+                            <NewsItem mode={this.props.mode} title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 100) + '...' : 'Click to See Details.'} srcOfNewsImg={e.urlToImage} newsUrl={e.url} publishedDate={e.publishedAt} author={e.author ? e.author : 'Unknown'} source={e.source.name} />
                         </div>) : ''
                     })}
                 </div>

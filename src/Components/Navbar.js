@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export class Navbar extends Component {
     render() {
         return (
-            <nav className={`navbar navbar-expand-lg bg-${this.props.mode}`}>
+            <nav className={`navbar navbar-expand-lg bg-${this.props.mode} navbar-${this.props.mode}`}>
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">NewsGen</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,8 +44,8 @@ export class Navbar extends Component {
                         <div className="form-check form-switch" style={{
                             marginTop: '0.5rem'
                         }}>
-                            <input className="form-check-input" type="checkbox" onClick={this.props.toggleMode} role="switch" id="darkMode" />
-                            <label className="form-check-label" htmlFor="darkMode" onClick={this.props.toggleMode}>{`${this.props.mode === 'light' ? 'Enable Dark Mode' : 'Disable Dark Mode'}`}</label>
+                            <input className="form-check-input" type="checkbox" role="switch" id="darkMode" onClick={this.props.toggleMode}/>
+                            <label className={`form-check-label text-${this.props.mode === 'dark' ? 'light' : 'dark' }`} htmlFor="darkMode">{`${this.props.mode === 'light' ? 'Enable Dark Mode' : 'Disable Dark Mode'}`}</label>
                         </div>
                     </div>
                 </div>
