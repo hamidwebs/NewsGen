@@ -31,10 +31,10 @@ export default class App extends Component {
     }
     return (
       <>
-        <Router>
+        <Router basename='/NewsGen'>
           <Navbar mode={this.state.mode} toggleMode={toggleMode} />
           <Routes>
-            <Route exact path='/' element={<News mode={this.state.mode} key='general' category='general' />} />
+            <Route exact path='/NewsGen' element={<News mode={this.state.mode} key='general' category='general' />} />
             <Route path='/business' element={<News mode={this.state.mode} key='business' category='business' />} />
             <Route path='/entertainment' element={<News mode={this.state.mode} key='entertainment' category='entertainment' />} />
             <Route path='/health' element={<News mode={this.state.mode} key='health' category='health' />} />
