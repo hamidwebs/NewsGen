@@ -34,14 +34,14 @@ export default class App extends Component {
         <Router basename='/NewsGen'>
           <Navbar mode={this.state.mode} toggleMode={toggleMode} />
           <Routes>
-          <Route exact path='/' element={<News mode={this.state.mode} key='general' />} />
-            <Route path='/business' element={<News mode={this.state.mode} key='business' category='business' />} />
-            <Route path='/entertainment' element={<News mode={this.state.mode} key='entertainment' category='entertainment' />} />
-            <Route path='/health' element={<News mode={this.state.mode} key='health' category='health' />} />
-            <Route path='/science' element={<News mode={this.state.mode} key='science' category='science' />} />
-            <Route path='/sport' element={<News mode={this.state.mode} key='sports' category='sports' />} />
-            <Route path='/tech' element={<News mode={this.state.mode} key='technology' category='technology' />} />
-            <Route path='/about' element={<About mode={this.state.mode} />} />
+            <Route exact path='/' element={<News mode={this.state.mode} key='general' />} />
+            <Route exact path='/business' element={<News mode={this.state.mode} key='business' category='business' />} />
+            <Route exact path='/entertainment' element={<News mode={this.state.mode} key='entertainment' category='entertainment' />} />
+            <Route exact path='/health' element={<News mode={this.state.mode} key='health' category='health' />} />
+            <Route exact path='/science' element={<News mode={this.state.mode} key='science' category='science' />} />
+            <Route exact path='/sport' element={<News mode={this.state.mode} key='sports' category='sports' />} />
+            <Route exact path='/tech' element={<News mode={this.state.mode} key='technology' category='technology' />} />
+            <Route exact path='/about' element={<About mode={this.state.mode} />} />
           </Routes>
         </Router>
       </>
