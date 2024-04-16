@@ -3,7 +3,7 @@ import './NewsItem.css';
 
 export class NewsItem extends Component {
     render() {
-        let { title, description, srcOfNewsImg, newsUrl, publishedDate, author, source } = this.props;
+        let { title, description, srcOfNewsImg, newsUrl, publishedDate, source } = this.props;
         return (
             <div className={`card-group`}>
                 <div className={`card bg-${this.props.mode}`}>
@@ -17,7 +17,7 @@ export class NewsItem extends Component {
                         <a href={newsUrl} className={`btn btn-sm btn-${this.props.mode === 'light' ? "outline-" : ''}primary`} target='_blank' rel="noreferrer">Read More</a>
                     </div>
                     <div className={`card-footer bg-${this.props.mode}`}>
-                        <small className={`text-${this.props.mode === 'dark' ? 'light' : 'dark'}`}>By <b>{author}</b> on <b>{new Date(publishedDate).toUTCString().slice(0, (new Date(publishedDate).toUTCString().length - 3))}</b></small>
+                        <small className={`text-${this.props.mode === 'dark' ? 'light' : 'dark'}`}>Updated on <b>{new Date(publishedDate).toUTCString().slice(0, (new Date(publishedDate).toUTCString().length - 3))}</b></small>
                     </div>
                 </div>
             </div>
