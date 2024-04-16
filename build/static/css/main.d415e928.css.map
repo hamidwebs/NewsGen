@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.d415e928.css","mappings":"AAAA,kBACI,wCACJ","sources":["Components/NewsItem.css"],"sourcesContent":[".translate-middle {\r\n    transform: translate(-95%, -10%) !important;\r\n}"],"names":[],"sourceRoot":""}
