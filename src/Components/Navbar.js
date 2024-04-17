@@ -13,7 +13,7 @@ export class Navbar extends Component {
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" ariaLabelledby="offcanvasExampleLabel">
                         <div className={`offcanvas-header bg-${this.props.mode}`}>
                             <h5 className={`offcanvas-title text-${this.props.mode === 'dark' ? 'light' : 'dark'}`} id="offcanvasRightLabel">Please specify your choice</h5>
-                            <button type="button" className="btn-close" dataBsDismiss="offcanvas" ariaLabel="Close" style={{backgroundColor: 'red'}}></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" ariaLabel="Close" style={{backgroundColor: 'red'}}></button>
                         </div>
                         <div className={`offcanvas-body bg-${this.props.mode} text-${this.props.mode === 'dark' ? 'light' : 'dark'}`}>
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
