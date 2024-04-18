@@ -36,6 +36,7 @@ export default class App extends Component {
         progress: progress
       })
     }
+    let apiKey = process.env.REACT_APP_NEWS_API;
     return (
       <>
         <Router basename='/NewsGen'>
@@ -44,15 +45,17 @@ export default class App extends Component {
             color='#f11946'
             progress={this.state.progress}
             onLoaderFinished={() => setProgress(this.state.progress)}
+            className='mt-5'
+            height={4}
           />
           <Routes>
-            <Route exact path='/' element={<News setProgress={setProgress} docTitle='General' mode={this.state.mode} key='general' />} />
-            <Route exact path='/business' element={<News setProgress={setProgress} docTitle='Business' mode={this.state.mode} key='business' category='business' />} />
-            <Route exact path='/entertainment' element={<News setProgress={setProgress} docTitle='Entertainment' mode={this.state.mode} key='entertainment' category='entertainment' />} />
-            <Route exact path='/health' element={<News setProgress={setProgress} docTitle='Health' mode={this.state.mode} key='health' category='health' />} />
-            <Route exact path='/science' element={<News setProgress={setProgress} docTitle='Science' mode={this.state.mode} key='science' category='science' />} />
-            <Route exact path='/sport' element={<News setProgress={setProgress} docTitle='Sports' mode={this.state.mode} key='sports' category='sports' />} />
-            <Route exact path='/tech' element={<News setProgress={setProgress} docTitle='Tech' mode={this.state.mode} key='technology' category='technology' />} />
+            <Route exact path='/' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='General' mode={this.state.mode} key='general' />} />
+            <Route exact path='/business' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Business' mode={this.state.mode} key='business' category='business' />} />
+            <Route exact path='/entertainment' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Entertainment' mode={this.state.mode} key='entertainment' category='entertainment' />} />
+            <Route exact path='/health' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Health' mode={this.state.mode} key='health' category='health' />} />
+            <Route exact path='/science' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Science' mode={this.state.mode} key='science' category='science' />} />
+            <Route exact path='/sport' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Sports' mode={this.state.mode} key='sports' category='sports' />} />
+            <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Tech' mode={this.state.mode} key='technology' category='technology' />} />
             <Route exact path='/about' element={<About docTitle='About' mode={this.state.mode} />} />
           </Routes>
         </Router>

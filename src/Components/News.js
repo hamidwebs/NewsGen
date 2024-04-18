@@ -19,13 +19,15 @@ export class News extends Component {
     }
     async componentDidMount() {
         this.props.setProgress(0);
-        let url = `https://gnews.io/api/v4/search?q=${this.props.category}&lang=en&country=us&apikey=41a005b2ed0ea1f6b380e10628cbb6ec`;
+        let url = `https://gnews.io/api/v4/search?q=${this.props.category}&lang=en&country=us&apikey=${this.props.apiKey}`;
         this.setState({
             loading: true
         })
+        this.props.setProgress(20);
         let data = await fetch(url);
-        this.props.setProgress(60);
+        this.props.setProgress(50);
         let information = await data.json();
+        this.props.setProgress(75);
         this.setState({
             loading: false,
             articles: information.articles,
