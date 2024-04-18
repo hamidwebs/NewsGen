@@ -18,17 +18,20 @@ export class News extends Component {
         }
     }
     async componentDidMount() {
+        this.props.setProgress(0);
         let url = `https://gnews.io/api/v4/search?q=${this.props.category}&lang=en&country=us&apikey=41a005b2ed0ea1f6b380e10628cbb6ec`;
         this.setState({
             loading: true
         })
         let data = await fetch(url);
+        this.props.setProgress(60);
         let information = await data.json();
         this.setState({
             loading: false,
             articles: information.articles,
             totalResults: information.totalResults
         })
+        this.props.setProgress(100);
     }
     render() {
         document.title = `News Gen | ${this.props.docTitle === 'General' ? 'Home' : this.props.docTitle} - Get Latest News Free!`
