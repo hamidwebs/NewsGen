@@ -1,56 +1,38 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
-import PropTypes from 'prop-types'
 
-export class News extends Component {
-    static defaultProps = {
-        category: 'general'
-    }
-    static propTypes = {
-        category: PropTypes.string,
-    }
-    constructor() {
-        super();
-        this.state = {
-            articles: [],
-            loading: false
-        }
-    }
-    async componentDidMount() {
-        this.props.setProgress(0);
-        let url = `https://gnews.io/api/v4/search?q=${this.props.category}&lang=en&country=us&apikey=${this.props.apiKey}`;
-        this.setState({
-            loading: true
-        })
-        this.props.setProgress(20);
+export default function News(props) {
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(false);
+    let updateNews = async () => {
+        props.setProgress(0);
+        let url = `https://gnews.io/api/v4/search?q=${props.category}&lang=en&country=us&apikey=${props.apiKey}`;
+        setLoading(true);
+        props.setProgress(20);
         let data = await fetch(url);
-        this.props.setProgress(50);
+        props.setProgress(50);
         let information = await data.json();
-        this.props.setProgress(75);
-        this.setState({
-            loading: false,
-            articles: information.articles,
-            totalResults: information.totalResults
-        })
-        this.props.setProgress(100);
+        props.setProgress(75);
+        setArticles(information.articles)
+        setLoading(false);
+        props.setProgress(100);
     }
-    render() {
-        document.title = `News Gen | ${this.props.docTitle === 'General' ? 'Home' : this.props.docTitle} - Get Latest News Free!`
-        return (
-            <div className='container'>
-                <h1 className={`my-3 text-center text-${this.props.mode === 'dark' ? 'light' : 'dark'}`} style={{ margin: "40px 0px" }}>NewsGen - Top {`${this.props.docTitle}`} Headlines</h1>
-                {this.state.loading && <Spinner />}
-                <div className="row">
-                    {!(this.state.loading) && this.state.articles.map((e) => {
-                        return e.title !== '[Removed]' || e.title === '' ? (<div className="col-lg-4 col-md-6 my-3" key={e.url}>
-                            <NewsItem mode={this.props.mode} title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 100) + '...' : 'Click to See Details.'} srcOfNewsImg={e.image} newsUrl={e.url} publishedDate={e.publishedAt} source={e.source.name} />
-                        </div>) : ''
-                    })}
-                </div>
+    useEffect(() => {
+        updateNews();
+    }, [])
+    document.title = `News Gen | ${props.docTitle === 'General' ? 'Home' : props.docTitle} - Get Latest News Free!`
+    return (
+        <div className='container'>
+            <h1 className={`my-3 text-center text-${props.mode === 'dark' ? 'light' : 'dark'}`} style={{ margin: "40px 0px" }}>NewsGen - Top {`${props.docTitle}`} Headlines</h1>
+            {loading && <Spinner />}
+            <div className="row">
+                {!(loading) && articles.map((e) => {
+                    return e.title !== '[Removed]' || e.title === '' ? (<div className="col-lg-4 col-md-6 my-3" key={e.url}>
+                        <NewsItem mode={props.mode} title={e.title ? e.title.slice(0, 20) + ' ...' : ''} description={e.description ? e.description.slice(0, 100) + '...' : 'Click to See Details.'} srcOfNewsImg={e.image} newsUrl={e.url} publishedDate={e.publishedAt} source={e.source.name} />
+                    </div>) : ''
+                })}
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default News
