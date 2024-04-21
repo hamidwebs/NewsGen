@@ -15,6 +15,7 @@ export default function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       document.body.style.backgroundColor = 'black';
+      setMode('dark');
     } else {
       document.body.style.backgroundColor = 'white';
       setMode('light');
