@@ -20,6 +20,7 @@ export default function News(props) {
     }
     useEffect(() => {
         updateNews();
+        // eslint-disable-next-line
     }, [])
     document.title = `News Gen | ${props.docTitle === 'General' ? 'Home' : props.docTitle} - Get Latest News Free!`
     return (

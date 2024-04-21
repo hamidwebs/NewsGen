@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar(props) {
     return (
-        <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
+        <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode} sticky-top`}>
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">NewsGen</Link>
-                <button className="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasExample" ariaControls="offcanvasExample">
+                <button className="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" ariaLabelledby="offcanvasExampleLabel">
+                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div className={`offcanvas-header bg-${props.mode}`}>
                         <h5 className={`offcanvas-title text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="offcanvasRightLabel">Please specify your choice</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" ariaLabel="Close" style={{ backgroundColor: 'red' }}></button>
+                        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{ backgroundColor: 'red' }}></button>
                     </div>
                     <div className={`offcanvas-body bg-${props.mode} text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
