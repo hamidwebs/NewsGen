@@ -44,6 +44,8 @@ export default function App() {
           <Route exact path='/science' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Science' mode={mode} key='science' category='science' />} />
           <Route exact path='/sport' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Sports' mode={mode} key='sports' category='sports' />} />
           <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Tech' mode={mode} key='technology' category='technology' />} />
+          <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='World' mode={mode} key='world' category='world' />} />
+          <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Nation' mode={mode} key='nation' category='nation' />} />
           <Route exact path='/about' element={<About docTitle='About' mode={mode} />} />
         </Routes>
       </Router>
