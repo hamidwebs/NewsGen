@@ -33,8 +33,10 @@ export default function App() {
           color='#f11946'
           progress={progress}
           onLoaderFinished={() => setProgress(progress)}
-          className='mt-5'
-          height={2}
+          style={{
+            marginTop: '50px'
+          }}
+          height={3}
         />
         <Routes>
           <Route exact path='/' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='General' mode={mode} key='general' />} />
@@ -44,8 +46,8 @@ export default function App() {
           <Route exact path='/science' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Science' mode={mode} key='science' category='science' />} />
           <Route exact path='/sport' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Sports' mode={mode} key='sports' category='sports' />} />
           <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Tech' mode={mode} key='technology' category='technology' />} />
-          <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='World' mode={mode} key='world' category='world' />} />
-          <Route exact path='/tech' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Nation' mode={mode} key='nation' category='nation' />} />
+          <Route exact path='/world' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='World' mode={mode} key='world' category='world' />} />
+          <Route exact path='/nation' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Nation' mode={mode} key='nation' category='nation' />} />
           <Route exact path='/about' element={<About docTitle='About' mode={mode} />} />
         </Routes>
       </Router>

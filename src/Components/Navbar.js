@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 export default function Navbar(props) {
     let location = useLocation();
     return (
-        <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode} sticky-top`}>
+        <nav className={`navbar navbar-expand-xl bg-${props.mode} navbar-${props.mode} sticky-top`}>
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">NewsGen</Link>
                 <button className="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -18,7 +18,7 @@ export default function Navbar(props) {
                     <div className={`offcanvas-body bg-${props.mode} text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to="/" classNam={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page">Home</Link>
+                                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
