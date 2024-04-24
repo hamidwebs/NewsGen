@@ -34,7 +34,7 @@ export default function App() {
           progress={progress}
           onLoaderFinished={() => setProgress(progress)}
           className='mt-5'
-          height={4}
+          height={2}
         />
         <Routes>
           <Route exact path='/' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='General' mode={mode} key='general' />} />
