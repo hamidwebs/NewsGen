@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.3bf59ee7.css","mappings":"AAAA,kBACI,wCACJ,CCFA,sBACI,cAAe,CACf,wBAAiB,CAAjB,gBACJ","sources":["Components/NewsItem.css","App.css"],"sourcesContent":[".translate-middle {\r\n    transform: translate(-95%, -10%) !important;\r\n}",".remove-typing-cursor {\r\n    cursor: default;\r\n    user-select: none;\r\n}"],"names":[],"sourceRoot":""}
