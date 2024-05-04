@@ -35,20 +35,6 @@ export default function About(props) {
                         </div>
                     </div>
                 </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button className={`accordion-button collapsed bg-${props.mode} text-${props.mode === 'dark' ? 'light' : 'dark'}`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Contact Us
-                        </button>
-                    </h2>
-                    <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className={`accordion-body bg-${props.mode} text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
-                            We're here to assist you with any questions, feedback, or concerns you might have. Feel free to reach out to us via email at <code>itmughal2023@gmail.com</code>. We strive to respond to all inquiries promptly and provide the best possible support to our users.Whether you have suggestions for improving the app, want to report a bug, or simply want to share your thoughts, your input is invaluable to us. We appreciate your interest in our news app and look forward to hearing from you!Thank you for choosing NewsGen for your news updates.
-                            We're here to assist you with any questions, feedback, or concerns you might have. Feel free to reach out to us via email at <code>itmughal2023@gmail.com</code>. We strive to respond to all inquiries promptly and provide the best possible support to our users.Whether you have suggestions for improving the app, want to report a bug, or simply want to share your thoughts, your input is invaluable to us. We appreciate your interest in our news app and look forward to hearing from you!Thank you for choosing NewsGen for your news updates.
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     )

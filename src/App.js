@@ -8,6 +8,8 @@ import {
   Route,
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
+import Contact from './Components/Contact';
+import './App.css';
 
 export default function App() {
   const [mode, setMode] = useState('light');
@@ -26,7 +28,7 @@ export default function App() {
   }
   let apiKey = process.env.REACT_APP_NEWS_API;
   return (
-    <>
+    <div className='remove-typing-cursor'>
       <Router basename='/NewsGen'>
         <Navbar mode={mode} toggleMode={toggleMode} />
         <LoadingBar
@@ -49,8 +51,9 @@ export default function App() {
           <Route exact path='/world' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='World' mode={mode} key='world' category='world' />} />
           <Route exact path='/nation' element={<News apiKey={apiKey} setProgress={setProgress} docTitle='Nation' mode={mode} key='nation' category='nation' />} />
           <Route exact path='/about' element={<About docTitle='About' mode={mode} />} />
+          <Route exact path='/contact' element={<Contact mode={mode} docTitle='Contact Us'/>} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }

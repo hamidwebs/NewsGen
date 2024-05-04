@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Navbar(props) {
     let location = useLocation();
+    const ref = useRef(null);
+    useEffect(() => {
+        ref.current.click();
+    }, [location, props.mode]);
+    
     return (
         <nav className={`navbar navbar-expand-xl bg-${props.mode} navbar-${props.mode} sticky-top`}>
             <div className="container-fluid">
@@ -13,15 +18,12 @@ export default function Navbar(props) {
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div className={`offcanvas-header bg-${props.mode}`}>
                         <h5 className={`offcanvas-title text-${props.mode === 'dark' ? 'light' : 'dark'}`} id="offcanvasRightLabel">Please specify your choice</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{ backgroundColor: 'red' }}></button>
+                        <button type="button" className="btn-close" ref={ref} data-bs-dismiss="offcanvas" aria-label="Close" style={{ backgroundColor: 'red' }}></button>
                     </div>
                     <div className={`offcanvas-body bg-${props.mode} text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/business" className={`nav-link ${location.pathname === '/business' ? 'active' : ''}`}>Business</Link>
@@ -49,6 +51,12 @@ export default function Navbar(props) {
                             </li>
                             <li className="nav-item">
                                 <Link to="/nation" className={`nav-link ${location.pathname === '/nation' ? 'active' : ''}`}>Nation</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/contact" className={`nav-link ${location.pathname === '/nation' ? 'active' : ''}`}>Contact Us</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
                             </li>
                         </ul>
                         <hr />
